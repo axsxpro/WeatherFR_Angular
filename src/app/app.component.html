@@ -19,14 +19,24 @@
 
         <div class="mb-3" id="container-input">
 
+            <!-- titre  -->
             <label for="exampleInputEmail1" class="form-label">
                 <h4 style="color: lightslategray">Entrez le code postal</h4>
             </label>
 
             <hr>
 
-            <!-- permet de lier la valeur d'un champ de formulaire à une propriété(variable) d'un composant. -->
+            <!-- [formControl]="field": permet de lier la valeur d'un champ de formulaire à une propriété(variable) d'un composant. -->
             <input [formControl]="field" type="text" class="form-control mb-4" id="input" aria-describedby="emailHelp">
+
+            <!-- Liste de suggestions de code postal et du nom de la ville -->
+            <ul *ngIf="suggestions.length > 0 && !suggestionSelected" class="list-group">
+                <li *ngFor="let suggestion of suggestions" class="list-group-item" (click)="selectSuggestion(suggestion)">
+                    {{ suggestion.cityName }} - {{ suggestion.postalCode }} - {{ suggestion.region }}
+                </li>
+            </ul>
+
+            <!-- Bouton de recherche -->
             <button (click)="searchAddress()" type="submit" class="button-66 d-inline-block mx-auto">Rechercher</button>
 
         </div>

@@ -44,6 +44,12 @@ button {
 }
 
 
+.list-group-item:hover {
+    cursor: pointer; /* Changement du curseur en pointeur lorsque le curseur survole la suggestion */
+    background-color: rgba(255, 255, 255, 0.8); /* Fond de couleur opaque blanc */
+}
+
+*
 /* CSS */
 .button-66 {
   background-color: #0a6bff;
