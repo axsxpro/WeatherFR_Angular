@@ -2,6 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgIf } from '@angular/common';
 import { MapComponent } from '../map/map.component';
+import { environment } from '../../environments/environment';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class WeatherComponent implements OnChanges {
 
   // Déclaration d'une propriété d'entrée cityDataSecondChild, qui reçoit des données sur la ville venant du parent (cityDataParent)
   @Input() cityDataSecondChild: any;
-  private apiKey = '509d189c18c1381e4beb5a406e5da476';
+  private apiKey = environment.apiKey;
   // Propriété pour stocker les données météorologiques récupérées
   protected weatherData: any = [];
 
