@@ -1,0 +1,44 @@
+body {
+    margin: 0; 
+    padding: 0; 
+}
+
+
+li {
+    list-style: none;
+}
+
+
+.container-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid white 5px;
+    background-color: rgba(240, 248, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+    padding: 20px; 
+    margin-bottom: 20px;
+}
+
+#container-weather{
+
+    background-color: rgb(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+#container-dataWeather {
+
+    /* border: solid black 2px; */
+    background-color: whitesmoke;
+    height: 200px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+
+}
+
+.title {
+    padding: 20px;
+    background-color: whitesmoke;
+}

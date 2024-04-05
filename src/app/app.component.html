@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="col-lg-3 mx-auto mt-5 text-center" id="container-2">
+
+        <div class="mb-3" id="container-input">
+
+            <label for="exampleInputEmail1" class="form-label">
+                <h4 style="color: lightslategray">Entrez le code postal</h4>
+            </label>
+
+            <hr>
+
+            <!-- permet de lier la valeur d'un champ de formulaire à une propriété(variable) d'un composant. -->
+            <input [formControl]="field" type="text" class="form-control mb-4" id="input" aria-describedby="emailHelp">
+            <button (click)="searchAddress()" type="submit" class="button-66 d-inline-block mx-auto">Rechercher</button>
+
+        </div>
+
+    </div>
+
+    <div class=" row col-lg-10 mx-auto" id="container-3">
+
+        <!-- intégration de la carte -->
+        <div class="col-lg-6 mx-auto d-flex justify-content-center align-items-center" id="container-map">
+            <app-map [cityDataMap]="cityDataParent"></app-map>
+        </div>
+
+
+        <div class="col-lg-6 mx-auto mt-5" id="container-city">
+            <!-- envoi des données vers le composant enfant : utilisation du selector <app-cities>-->
+            <app-cities [cityDataChild]="cityDataParent"></app-cities>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!-- *ngIf="cityDataChild.cityName && cityDataChild.postalCode" -->
+<!-- <h5>Child componant 1</h5> -->
+
+<!-- <div class="col-lg-5 mx-auto mt-3 text-center" id="container-city">
+        
+        <h5 style="color: lightslategray">Information city: </h5>
+        <hr>
+        <h5 *ngIf="cityDataChild.cityName && cityDataChild.postalCode"> 📍{{ cityDataChild.cityName }}, {{ cityDataChild.postalCode }}</h5> récupération de la propriété input et des élements -->
+
+<!-- <p><strong>Coordinates: </strong>
+        <li> longitude: {{ cityDataChild.coordinates.longitude }} </li>
+        <li> latitude: {{ cityDataChild.coordinates.latitude }} </li>
+    </p> -->
+
+<!-- </div> -->
+
+
+
+<div class="col-lg-10 mx-auto mt-3 text-center" id="container-weather">
+
+    <div class="title">
+        <h5 style="color: lightslategray"> 🌤️ Weather information </h5>
+        <hr>
+    </div>
+
+    <!-- affichage des données météorologiques, récupération des données du premier enfant vers le second enfant -->
+    <div id="container-dataWeather">
+        <app-weather [cityDataSecondChild]="cityDataChild"></app-weather>
+    </div>
+
+</div>

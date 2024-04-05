@@ -1,0 +1,21 @@
+
+.container-weather {
+    /* border : solid rgb(65, 52, 249) 2px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#weather-icon {
+    width: 100px;
+    height: 100px;
+}
+
+
+.weather-location {
+
+    margin : 20px;
+}
+
+
+
