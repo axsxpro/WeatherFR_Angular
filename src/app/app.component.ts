@@ -40,8 +40,11 @@ export class AppComponent {
   public getSuggestions() {
 
     if (this.field.value.trim() === '' || this.suggestionSelected) {
+
       this.suggestions = [];
+      this.suggestionSelected = false
       return;
+
     }
 
     // Appel à l'API pour obtenir les suggestions
@@ -53,7 +56,7 @@ export class AppComponent {
         region: feature.properties.context
       }));
     });
-    
+
   }
 
 
@@ -70,7 +73,7 @@ export class AppComponent {
   public searchAddress() {
 
     // Si le champ est vide ou une suggestion a été sélectionnée, ne rien faire
-    if (this.field.value.trim() === '' || !this.suggestionSelected) {
+    if (this.field.value.trim() === '' || this.suggestionSelected) {
       return;
     }
 
