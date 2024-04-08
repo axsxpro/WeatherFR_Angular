@@ -27,34 +27,43 @@ export class AppComponent {
   public suggestions: any = [];
   public suggestionSelected: boolean = false; // Indicateur pour vérifier si une suggestion a été sélectionnée
 
+
   constructor(private http: HttpClient) {
-    // Écouter les changements dans le champ de texte avec un délai de 300ms
+    // Lorsqu'il y a une requete HTTP, écouter les changements dans le champ de texte avec un délai de 300ms
     this.field.valueChanges.pipe(
-      debounceTime(300)
+      debounceTime(400)
     ).subscribe(() => {
       this.getSuggestions();
     });
   }
 
-  // Fonction pour obtenir les suggestions à chaque frappe sur le clavier
+
+  // méthode enclenchée à chaque évenement dans le input pour obtenir les suggestions 
   public getSuggestions() {
 
-    if (this.field.value.trim() === '' || this.suggestionSelected) {
+    // si le input est vide
+    if (this.field.value.trim() === '' ) {
 
-      this.suggestions = [];
-      this.suggestionSelected = false
-      return;
+      this.suggestions = []; // vider le tableau de suggestion
+      this.suggestionSelected = false // mettre la selection d'une suggestion à false
+      return; 
 
     }
 
-    // Appel à l'API pour obtenir les suggestions
+    // Appelde l'API pour obtenir les suggestions
     this.http.get('https://api-adresse.data.gouv.fr/search/?q=' + this.field.value).subscribe((data: any) => {
-      // Stockage des suggestions
+      
+      //Stockage des suggestions
+      //map: permet de parcourir les élements du tableau 
+      //feature: représente un élément individuel du tableau
       this.suggestions = data.features.map((feature: any) => ({
+
         cityName: feature.properties.city,
         postalCode: feature.properties.postcode,
         region: feature.properties.context
+
       }));
+
     });
 
   }
@@ -63,8 +72,8 @@ export class AppComponent {
  // Fonction pour sélectionner une suggestion et mettre à jour le champ d'entrée
   public selectSuggestion(suggestion: any) {
 
-    this.suggestionSelected = true; // Définir l'indicateur de sélection de suggestion sur vrai
-    this.field.setValue(suggestion.postalCode); // Mettre à jour le champ d'entrée avec le code postal de la suggestion
+    this.suggestionSelected = true; // devient true lors de la selection d'une suggestion
+    this.field.setValue(suggestion); // Mettre à jour le champ d'entrée avec le code postal de la suggestion
     
   }
 
@@ -72,9 +81,11 @@ export class AppComponent {
   // méthode pour effectuer la recherche d'adresse lorsque le bouton de recherche est cliqué
   public searchAddress() {
 
-    // Si le champ est vide ou une suggestion a été sélectionnée, ne rien faire
-    if (this.field.value.trim() === '' || this.suggestionSelected) {
+    // Si le champ est vide ou une suggestion n'a pas été sélectionnée, ne rien faire
+    if (this.field.value.trim() === '' || !this.suggestionSelected) {
+
       return;
+
     }
 
     // Utilisation du get pour récupérer les données de l'API
@@ -91,6 +102,7 @@ export class AppComponent {
 
       // Réinitialisation des suggestions après la recherche
       this.suggestions = [];
+
     });
   }
 
