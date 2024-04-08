@@ -31,10 +31,9 @@
 
             <!-- Liste de suggestions de code postal et du nom de la ville -->
             <!-- <ul *ngIf="suggestions && !suggestionSelected" class="list-group"> -->
-                <!-- code postal selectionnée de la suggestion qui sera passé en argument  -->
-                <!-- <li *ngFor="let suggestion of suggestions" class="list-group-item"
-                    (click)="selectSuggestion(suggestion.postalCode)"> -->
-                    <!-- {{ suggestion.cityName }} - {{ suggestion.postalCode }} - {{ suggestion.region }}
+            <!-- code postal selectionnée de la suggestion qui sera passé en argument  -->
+            <!-- <li *ngFor="let suggestion of suggestions" class="list-group-item" (click)="selectSuggestion(suggestion.postalCode)"> -->
+            <!-- {{ suggestion.cityName }} - {{ suggestion.postalCode }} - {{ suggestion.region }}
                 </li>
             </ul> -->
 
@@ -43,12 +42,11 @@
                     {{ suggestions[0].cityName }} - {{ suggestions[0].postalCode }} - {{ suggestions[0].region }}
                 </li>
             </ul>
-
-
-            <!-- Bouton de recherche -->
-            <button (click)="searchAddress()" type="submit" class="button-66 d-inline-block mx-auto">Rechercher</button>
-
+            
         </div>
+
+        <!-- Bouton de recherche -->
+        <button (click)="searchAddress()" type="submit" class="button-66 d-inline-block mx-auto">Rechercher</button>
 
     </div>
 
