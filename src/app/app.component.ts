@@ -22,6 +22,7 @@ import { debounceTime } from 'rxjs/operators';
 
 
 export class AppComponent {
+  
   public field = new FormControl(); // variable qui récupère la valeur de l'input dans le formulaire
   public cityDataParent: any = []; // variable qui stocke les données de l'api
   public suggestions: any = [];
